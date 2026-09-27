@@ -19,14 +19,14 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Make Gradle executable
-        run: chmod +x gradlew
-
       - name: Build APK
-        run: ./gradlew assembleDebug
+        working-directory: App
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: bank-vault-apk
-          path: "**/build/outputs/apk/**/*.apk"
+          path: "App/**/build/outputs/apk/**/*.apk"
