@@ -36,7 +36,6 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US"
 
       - name: Create .env
-        working-directory: app
         run: |
           echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" > .env
           echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> .env
