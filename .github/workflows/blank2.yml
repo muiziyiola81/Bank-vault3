@@ -34,12 +34,13 @@ jobs:
             -storepass android \
             -keypass android \
             -dname "CN=Android Debug,O=Android,C=US"
-                    - name: Create .env
-          working-directory: app
-          run: |
-            echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" > .env
-            echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> .env
-            echo "SUPABASE_ADMIN_USER_ID=${{ secrets.SUPABASE_ADMIN_USER_ID }}" >> .env
+
+      - name: Create .env
+        working-directory: app
+        run: |
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" > .env
+          echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> .env
+          echo "SUPABASE_ADMIN_USER_ID=${{ secrets.SUPABASE_ADMIN_USER_ID }}" >> .env
 
       - name: Build APK
         working-directory: app
